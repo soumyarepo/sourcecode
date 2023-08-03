@@ -5,11 +5,14 @@ pipeline {
         }
     }
 
+environment {
+    PATH = "/opt/apache-maven-3.9.4/bin:$PATH"
+}
+
     stages {
-        stage('GitCheckout') {
+        stage("build") {
             steps {
-                git branch: 'main', url: 'https://github.com/ravdy/tweet-trend.git'
-                sh 'ls -lrta'
+                sh 'mvn clean deploy'
             }
         }
     }
