@@ -24,7 +24,7 @@ environment {
                 script{
                     // Your SonarQube analysis steps here
                     withSonarQubeEnv('my-sonarqube-server') {
-                        sh "${scannerHome}/bin/my-sonar-scanner"
+                        sh "${scannerHome}/bin/sonar-scanner"
                     }
                 }
             }
