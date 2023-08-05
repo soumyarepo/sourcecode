@@ -21,8 +21,12 @@ environment {
                 scannerHome = 'my-sonar-scanner'
             }
             steps {
-            withSonarQubeEnv("my-sonarqube-server")
-                sh "${scannerHome}/bin/my-sonar-scanner"
+                script{
+                    // Your SonarQube analysis steps here
+                    withSonarQubeEnv('my-sonarqube-server') {
+                        sh "${scannerHome}/bin/my-sonar-scanner"
+                    }
+                }
             }
         }
     }
