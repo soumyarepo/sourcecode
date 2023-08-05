@@ -18,7 +18,7 @@ environment {
         
         stage("sonar-scan") {
             environment {
-                scannerHome = 'my-sonar-scanner'
+                scannerHome = tool 'my-sonar-scanner'
             }
             steps {
                 script{
