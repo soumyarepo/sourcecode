@@ -21,7 +21,7 @@ environment {
                 scannerHome = 'my-sonar-scanner'
             }
             steps {
-            withSonarQubeEnv('my-sonarqube-server')
+            withSonarQubeEnv("my-sonarqube-server")
                 sh "${scannerHome}/bin/my-sonar-scanner"
             }
         }
