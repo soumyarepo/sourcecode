@@ -16,19 +16,18 @@ environment {
             }
         }
     }
-    stage('SonarQube') {
-    environment {
-        scannerHome = tool 'my-sonar-scanner'
-    }
-    steps {
+        stage('SonarQube'){
+        environment {
+            scannerHome = tool 'my-sonar-scanner'
+        }
+        steps {
         sca
         script {
-            withSonarQubeEnv('SonarQube_Server') {
+            withSonarQubeEnv('my-sonarqube-server') {
                 // Run SonarQube scanner to analyze the code
-                sh 'sonar-scanner'
+                sh "${scannerHome}/bin/my-sonar-scanner"
             }
         }
     }
 }
-
-} 
+}
