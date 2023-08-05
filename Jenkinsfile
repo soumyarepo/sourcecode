@@ -16,7 +16,7 @@ environment {
             }
         }
     }
-        stage('SonarQube'){
+        stage('SonarQube') {
         environment {
             scannerHome = tool 'my-sonar-scanner'
         }
@@ -30,4 +30,5 @@ environment {
         }
     }
 }
+
 }
