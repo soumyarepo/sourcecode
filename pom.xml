@@ -18,6 +18,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		 <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+		 <maven.failsafe.plugin.useSystemClassLoader>false</maven.failsafe.plugin.useSystemClassLoader>
 	</properties>
 
 	<dependencies>
