@@ -18,12 +18,12 @@ environment {
         
         stage("sonar-scan") {
             environment {
-                scannerHome = tool 'my-sonar-scanner'
+                scannerHome = tool 'sonar-scanner'
             }
             steps {
                 script{
                     // Your SonarQube analysis steps here
-                    withSonarQubeEnv('my-sonarqube-server') {
+                    withSonarQubeEnv('sonarqube-server') {
                         sh "${scannerHome}/bin/sonar-scanner"
                     }
                 }
