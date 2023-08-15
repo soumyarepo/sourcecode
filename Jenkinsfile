@@ -17,12 +17,9 @@ environment {
         }
         
         stage("sonar-scan") {
-            environment {
-                scannerHome = tool 'sonar-scanner'
-            }
             steps {
                 script{
-                    // Your SonarQube analysis steps here
+                    def scannerHome = tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
                     withSonarQubeEnv('sonarqube-server') {
                         sh "${scannerHome}/bin/sonar-scanner"
                     }
