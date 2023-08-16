@@ -9,7 +9,7 @@ environment {
     PATH = "/opt/apache-maven-3.9.4/bin:$PATH"
     // Artifactory details
      registry = 'https://ubstech.jfrog.io/'
-     credentialsId = 'artifact-cred'
+     artifactory_token = 'artifact-cred'
      //Artifact location = '/home/ubuntu/jenkins/workspace/multibranchpipeline_main/jarstaging/com/valaxy/demo-workshop'
 }
 
