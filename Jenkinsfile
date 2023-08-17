@@ -1,4 +1,6 @@
-registry = 'https://ubstech.jfrog.io/'
+def registry = 'https://ubstech.jfrog.io/'
+def imageName = 'ubstech.jfrog.io/dev-docker-local/dummy'
+def version   = '${BUILD_NUMBER}'
 pipeline {
     agent {
         node {
@@ -64,6 +66,28 @@ environment {
                     buildInfo.env.collect()
                     server.publishBuildInfo(buildInfo)
                     echo '<--------------- Artifactory Publish Ended --------------->'
+                }
+            }
+        }
+
+        stage(" Docker Build ") {
+            steps {
+                script {
+                    echo '<--------------- Docker Build Started --------------->'
+                    app = docker.build(imageName+":"+version)
+                    echo '<--------------- Docker Build Ends --------------->'
+                 }
+            }
+        }
+
+        stage (" Docker Promote ") {
+           steps {
+                script {
+                   echo '<--------------- Docker Publish Started --------------->'
+                    docker.withRegistry(registry, 'artifact-cred'){
+                        app.push()
+                    }  
+                   echo '<--------------- Docker Publish Ended --------------->'
                 }
             }
         }
