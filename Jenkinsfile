@@ -1,6 +1,6 @@
 def registry = 'https://ubstech.jfrog.io/'
 def imageName = 'ubstech.jfrog.io/dev-docker-local/dummy'
-def version   = '${BUILD_NUMBER}'
+def version   = '2.1.2'
 pipeline {
     agent {
         node {
