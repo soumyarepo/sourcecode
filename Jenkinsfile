@@ -31,7 +31,7 @@ environment {
             }
         }
         
-        /*stage("sonar-scan") {
+        stage("sonar-scan") {
             steps {
                 script{
                     def scannerHome = tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
@@ -40,7 +40,7 @@ environment {
                     }
                 }
             }
-        }*/
+        
 
         stage("Artifactory Publish") {
             steps {
