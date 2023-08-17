@@ -40,6 +40,7 @@ environment {
                     }
                 }
             }
+        }
         
 
         stage("Artifactory Publish") {
