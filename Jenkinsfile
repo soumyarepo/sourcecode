@@ -98,10 +98,20 @@ environment {
                    echo '<--------------- Deployment Started --------------->'
                     sh 'chmod +x deploy.sh'
                     sh './deploy.sh'
-                    echo '<--------------- Deployment Ended --------------->'
+                    echo '<--------------- Deployment completed --------------->'
                     }
                    
                 }
             }
+
+            post {
+                always {
+                    // Send email notification on pipeline completion, regardless of success or failure
+                    emailext(
+                    subject: "Pipeline ${currentBuild.result}: Deployment Status",
+                    body: "Pipeline ${currentBuild.result}: Your application Deployment has completed.\n\n${BUILD_URL}",
+                    recipientProviders: [[$class: 'CulpritsRecipientProvider']],
+                    )
+                }
         }
     }
