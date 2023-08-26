@@ -91,5 +91,18 @@ environment {
                 }
             }
         }
+
+        stage (" Deployment") {
+           steps {
+                script {
+                   echo '<--------------- Deployment Started --------------->'
+                    chmod +x deploy.sh
+                    sh 'chmod +x deploy.sh'
+                    sh './deploy.sh'
+                    echo '<--------------- Deployment Ended --------------->'
+                    }
+                   
+                }
+            }
+        }
     }
- }
