@@ -103,15 +103,16 @@ environment {
                    
                 }
             }
+        }
 
-            post {
-                always {
-                    // Send email notification on pipeline completion, regardless of success or failure
-                    emailext(
-                    subject: "Pipeline ${currentBuild.result}: Deployment Status",
-                    body: "Pipeline ${currentBuild.result}: Your application Deployment has completed.\n\n${BUILD_URL}",
-                    recipientProviders: [[$class: 'CulpritsRecipientProvider']],
-                    )
-                }
+    post {
+        always {
+            // Send email notification on pipeline completion, regardless of success or failure
+            emailext(
+            subject: "Pipeline ${currentBuild.result}: Deployment Status",
+            body: "Pipeline ${currentBuild.result}: Your application Deployment has completed.\n\n${BUILD_URL}",
+            recipientProviders: [[$class: 'CulpritsRecipientProvider']],
+            )
         }
     }
+}
