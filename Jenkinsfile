@@ -111,7 +111,7 @@ environment {
             emailext(
             to: 'ranjan.soumya8055@gmail.com' , // Add other recipients here as needed
             subject: "Pipeline ${currentBuild.result}: Deployment Status",
-            body: "Pipeline ${currentBuild.result}: Your application Deployment has completed.\n\n${BUILD_URL}",
+            body: "Pipeline ${currentBuild.result}: 𝙔𝙤𝙪𝙧 𝙖𝙥𝙥𝙡𝙞𝙘𝙖𝙩𝙞𝙤𝙣 𝘿𝙚𝙥𝙡𝙤𝙮𝙢𝙚𝙣𝙩 𝙝𝙖𝙨 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙚𝙙.\n\n${BUILD_URL}",
             recipientProviders: [[$class: 'CulpritsRecipientProvider']],
             )
         }
