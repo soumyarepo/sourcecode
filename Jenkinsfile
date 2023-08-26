@@ -109,7 +109,7 @@ environment {
         always {
             // Send email notification on pipeline completion, regardless of success or failure
             emailext(
-            to: 'ranjan.soumya8055@gmail.com', // Add other recipients here as needed
+            to: 'ranjan.soumya8055@gmail.com', 'pushpaksutar1198@gmail.com'// Add other recipients here as needed
             subject: "Pipeline ${currentBuild.result}: Deployment Status",
             body: "Pipeline ${currentBuild.result}: Your application Deployment has completed.\n\n${BUILD_URL}",
             recipientProviders: [[$class: 'CulpritsRecipientProvider']],
